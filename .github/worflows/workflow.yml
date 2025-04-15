@@ -11,20 +11,20 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      
-      - name: Set up JDK 17
+
+      - name: Set up JDK
         uses: actions/setup-java@v4
         with:
           java-version: '17'
-      
+
       - name: Build and test with Maven
         run: mvn clean install -DskipTests=false
-      
+
       - name: Archive JAR
         uses: actions/upload-artifact@v4
         with:
-          name: spring-boot-app  # Name of the artifact
+          name: spring-boot-app
           path: target/*.jar
-      
+
       - name: Print success message
-        run: echo "Build and tests completed successfully!"
+        run: echo "Build and tests completed successfully"
